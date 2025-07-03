@@ -1,6 +1,6 @@
 package linkedlist;
 
-public class LinkedList<E> implements ListInterface<E> {
+public class LinkedList<E> implements interfaces.ListInterface<E> {
     private Node<E> head;
     private int numItems;
 
