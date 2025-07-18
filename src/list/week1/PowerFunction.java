@@ -1,4 +1,4 @@
-package week1;
+package list.week1;
 
 public class PowerFunction {
     public static long power(int x, int n){

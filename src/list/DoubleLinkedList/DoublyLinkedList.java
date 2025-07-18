@@ -1,6 +1,6 @@
-package DoubleLinkedList;
+package list.DoubleLinkedList;
 
-public class DoublyLinkedList<E> implements interfaces.ListInterface<E> {
+public class DoublyLinkedList<E> implements list.interfaces.ListInterface<E> {
     private Node<E> head;
     private int numItems;
 

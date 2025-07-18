@@ -1,4 +1,4 @@
-package week1;
+package list.week1;
 
 public class FibonacciMain {
     public static int fibonacciRecursive(int n) {

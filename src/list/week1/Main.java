@@ -1,4 +1,4 @@
-package week1;
+package list.week1;
 
 public class Main {
     static void myFunc(int number) {

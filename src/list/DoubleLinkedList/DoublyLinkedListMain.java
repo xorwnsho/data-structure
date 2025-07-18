@@ -1,4 +1,4 @@
-package DoubleLinkedList;
+package list.DoubleLinkedList;
 
 public class DoublyLinkedListMain {
     public static void main(String[] args) {

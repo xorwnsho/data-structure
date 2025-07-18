@@ -1,8 +1,8 @@
-package arraypractice;
+package list.arraypractice;
 
 import java.util.Arrays;
 
-public class ArrayList<E> implements interfaces.ListInterface<E> {
+public class ArrayList<E> implements list.interfaces.ListInterface<E> {
 
     Object[] list = new Object[10];
     int listSize = 0;

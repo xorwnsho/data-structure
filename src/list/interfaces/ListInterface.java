@@ -1,4 +1,4 @@
-package interfaces;
+package list.interfaces;
 
 public interface ListInterface<E> {
     void add(int i, E x);

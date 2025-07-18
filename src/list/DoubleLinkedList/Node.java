@@ -1,4 +1,4 @@
-package DoubleLinkedList;
+package list.DoubleLinkedList;
 
 public class Node<E> {
     public E item;

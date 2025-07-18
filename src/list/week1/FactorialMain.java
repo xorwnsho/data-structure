@@ -1,4 +1,4 @@
-package week1;
+package list.week1;
 
 public class FactorialMain {
     public static void main(String[] args) {
