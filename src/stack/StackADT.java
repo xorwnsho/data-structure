@@ -1,17 +1,17 @@
 package stack;
 
-public interface StackADT<T> {
+public interface StackADT<E> {
     // 원소 추가
-    void push(T t);
+    void push(E t);
 
     // 원소 삭제 (맨 위)
     void pop();
 
     // 맨 위의 원소 반환
-    T top();
+    E top();
 
     // Stack 길이 출력
-    T length();
+    E length();
 
     // Stack이 비었으면 true, 아니면 else
     boolean isEmpty();
