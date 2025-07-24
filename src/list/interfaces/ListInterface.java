@@ -1,5 +1,7 @@
 package list.interfaces;
 
+import node.Node;
+
 public interface ListInterface<E> {
     void add(int i, E x);
     void append(E x);

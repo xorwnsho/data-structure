@@ -1,50 +1,53 @@
 package list.arraypractice;
 
+import list.interfaces.ListInterface;
+
 import java.util.Arrays;
 
-public class ArrayList<E> implements list.interfaces.ListInterface<E> {
+public class ArrayList<E> implements ListInterface<E> {
 
     Object[] list = new Object[10];
-    int listSize = 0;
+    int size = 0;
 
     @Override
     public void add(int i, E x) {
-        if(list[i] != null) {
+        if (list[i] != null) {
             rightShift(i);
         }
         if (i >= 0 && i <= list.length) {
             list[i] = x;
-            listSize = i + 1;
+            size = i + 1;
         }
     }
 
     @Override
     public void append(E x) {
-        if (listSize < list.length) {
-            list[listSize] = x;
-            listSize++;
+        if (size < list.length) {
+            list[size] = x;
+            size++;
         }
     }
 
     private void rightShift(int i) {
-        for (int j = listSize - 1; j >= i; j--) {
+        for (int j = size - 1; j >= i; j--) {
             list[j + 1] = list[j];
         }
-        listSize++;
+        size++;
     }
 
     private void leftShift(int i) {
-        for (int index = i + 1; index < listSize; index++) {
-            list[index-1] = list[index];
+        for (int index = i + 1; index < size; index++) {
+            list[index - 1] = list[index];
         }
     }
 
     @Override
     public E remove(int i) {
+        E temp = get(i);
         list[i] = null;
         leftShift(i);
-        listSize--;
-        return null;
+        size--;
+        return temp;
     }
 
     @Override
@@ -59,46 +62,40 @@ public class ArrayList<E> implements list.interfaces.ListInterface<E> {
 
     @Override
     public void set(int i, E x) {
-        if(i >= 0 && i <= listSize) {
+        if (i >= 0 && i <= size) {
             list[i] = x;
         }
     }
 
     @Override
     public int indexOf(E x) {
-        for (int index = 0; index < listSize; index++) {
-            if(list[index] == null){
-                continue;
-            }
-            if(list[index].equals(x)) return index;
+        for (int index = 0; index < size; index++) {
+            if (list[index].equals(x)) return index;
         }
         return -1;
     }
 
     @Override
     public int size() {
-        return listSize;
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        if(listSize == 0) {
-            return true;
-        }
-        return false;
+        return size == 0;
     }
 
     @Override
     public void clear() {
-        for (int index = 0; index < listSize; index++) {
+        for (int index = 0; index < size; index++) {
             list[index] = null;
-            listSize =0 ;
         }
+        size = 0;
     }
 
     @Override
     public String toString() {
-        return Arrays.toString(Arrays.copyOf(list, listSize));
+        return Arrays.toString(Arrays.copyOf(list, size));
     }
 }
 
