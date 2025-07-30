@@ -14,14 +14,14 @@ public class DoublyLinkedList<E> implements ListInterface<E> {
     }
 
     @Override
-    public void add(int i, E x) {
-        if (i < 0 || i > size) {
-            throw new IndexOutOfBoundsException("Index: " + i + ", Size: " + size);
+    public void add(int index, E x) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
 
         DNode<E> newNode = new DNode<>(x, null, null);
 
-        if (i == 0) {
+        if (index == 0) {
             // Insert at the head
             if (head == null) { // Empty list
                 head = newNode;
@@ -34,7 +34,7 @@ public class DoublyLinkedList<E> implements ListInterface<E> {
         } else {
             // Find the node before the insertion point
             DNode<E> prevNode = head;
-            for (int j = 0; j < i - 1; j++) {
+            for (int i = 0; i < index - 1; i++) {
                 prevNode = prevNode.next;
             }
 
@@ -69,21 +69,21 @@ public class DoublyLinkedList<E> implements ListInterface<E> {
     }
 
     @Override
-    public E remove(int i) {
-        if (i < 0 || i >= size) {
+    public E remove(int index) {
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException();
         }
 
         DNode<E> currentNode = head;
 
-        if (i == 0) {
+        if (index == 0) {
             E value = head.item;
             head = head.next;
             head.prev = null;
             size--;
             return value;
         } else {
-            for (int j = 0; j < i; j++) {
+            for (int i = 0; i < index; i++) {
                 currentNode = currentNode.next;
 
             }
@@ -99,38 +99,22 @@ public class DoublyLinkedList<E> implements ListInterface<E> {
 
     @Override
     public boolean removeItem(E x) {
-//        DNode<E> currentNode = head;
-//
-//        for (int i = 0; i < size(); i++) {
-//            currentNode = currentNode.next;
-//            if (Objects.equals(currentNode.item, x)) {
-//                if (currentNode == head) {
-//                    head = currentNode.next;
-//                    head.prev = null;
-//                    size--;
-//                    return true;
-//                }
-//                if (currentNode == tail) {
-//                    tail = currentNode.prev;
-//                    tail.next = null;
-//                    size--;
-//                    return true;
-//                } else {
-//                    currentNode.prev.next = currentNode.next;
-//                    currentNode.next.prev = currentNode.prev;
-//                    size--;
-//                    return true;
-//                }
-//            }
-//        }
+        DNode<E> currentNode = head;
+        for (int i = 1; i < size ; i++) {
+            currentNode = currentNode.next;
+            if(currentNode.item.equals(x)){
+                remove(i);
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
-    public E get(int i) {
+    public E get(int index) {
         DNode<E> currentNode = head;
-        for (int j = 0; j < size; j++) {
-            if (j == i) {
+        for (int i = 0; i < size; i++) {
+            if (i == index) {
                 return currentNode.item;
             }
         }
@@ -138,28 +122,47 @@ public class DoublyLinkedList<E> implements ListInterface<E> {
     }
 
     @Override
-    public void set(int i, E x) {
+    public void set(int index, E x) {
+        if (index < 0 || index > size) {
+            throw new IndexOutOfBoundsException();
+        }
 
+        DNode<E> currentNode = head;
+        for (int i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+        currentNode.item = x;
     }
+
 
     @Override
     public int indexOf(E x) {
-        return 0;
+        DNode<E> currentNode = head;
+
+        for (int i = 1; i < size; i++) {
+            currentNode = currentNode.next;
+            if(currentNode.item.equals(x)){
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
     public void clear() {
-
+        head = null;
+        tail = null;
+        size = 0;
     }
 
     @Override
