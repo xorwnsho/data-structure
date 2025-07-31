@@ -5,13 +5,13 @@ public interface StackADT<E> {
     void push(E t);
 
     // 원소 삭제 (맨 위)
-    void pop();
+    E pop();
 
-    // 맨 위의 원소 반환
-    E top();
+    // 맨 위의 원소 확인
+    E peek();
 
     // Stack 길이 출력
-    E length();
+    int size();
 
     // Stack이 비었으면 true, 아니면 else
     boolean isEmpty();
@@ -19,6 +19,5 @@ public interface StackADT<E> {
     // Stack 초기화
     void clear();
 
-    // Stack의 모든 원소 출력
-    void printStack();
+    boolean isFull();
 }

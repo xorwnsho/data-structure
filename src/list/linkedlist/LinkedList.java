@@ -3,7 +3,6 @@ package list.linkedlist;
 import list.interfaces.ListInterface;
 import node.Node;
 
-import java.util.Arrays;
 import java.util.Objects;
 
 public class LinkedList<E> implements ListInterface<E> {
@@ -134,7 +133,6 @@ public class LinkedList<E> implements ListInterface<E> {
             }
             current = current.next;
         }
-        sb.append("]");
         return sb.toString();
     }
 }

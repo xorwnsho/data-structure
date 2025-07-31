@@ -23,6 +23,8 @@ public class DoublyCircularLinkedListMain {
         list.set(0, 10);
         System.out.println(list);
 
+        System.out.println(list.indexOf(30));
+
         list.clear();
         System.out.println(list);
         System.out.println(list.isEmpty());

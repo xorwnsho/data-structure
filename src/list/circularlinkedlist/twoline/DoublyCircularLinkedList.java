@@ -128,8 +128,8 @@ public class DoublyCircularLinkedList<E> implements ListInterface<E> {
             return -1;
         }
         DNode<E> currentNode = head;
-        for (int i = 0; i < size; i++) {
-            if ((x == null && currentNode.item == null) || (x != null && x.equals(currentNode.item))) {
+        for (int i = 0; i < size - 1; i++) {
+            if(currentNode.item.equals(x)){
                 return i;
             }
             currentNode = currentNode.next;
