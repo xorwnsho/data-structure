@@ -2,25 +2,15 @@ package queue;
 
 public interface QueueADT<E> {
 
-    // 마지막에 원소 삽입
-    void enqueue(E e);
+    void enqueue(E t);
 
-    // 먼저 들어온 원소 삭제
-    void dequeue();
+    E dequeue();
 
-    // 첫 번째 원소 확인
-    E first();
+    E peek();
 
-    // 마지막 원소 확인
-    E rear();
-
-    // 비어 있는 지 확인
     boolean isEmpty();
 
-    // 모든 원소 확인
-    void printAll();
+    boolean isFull();
 
-    // 모든 원소 삭제
-    void dequeueAll();
-
+    int size();
 }
