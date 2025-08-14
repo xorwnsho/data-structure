@@ -13,18 +13,16 @@ public class QueueMain {
         System.out.println(list);
         System.out.println("Is list full? : " + list.isFull());
 
-
         list.dequeue();
         System.out.println(list);
         list.dequeue();
         System.out.println(list);
         System.out.println(list.peek());
+//        list.enqueue(60);
         System.out.println(list.size());
         System.out.println("Is list empty? : " + list.isEmpty());
 
         list.clear();
         System.out.println("Is list empty? : " + list.isEmpty());
-
-
     }
 }

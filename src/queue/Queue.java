@@ -19,7 +19,7 @@ public class Queue<E> implements QueueADT<E> {
     public void enqueue(E t) {
 
         // length를 벗어나면 예외
-        if (size == objects.length) {
+        if (isFull()) {
             throw new IndexOutOfBoundsException("Queue is full");
         }
 
@@ -29,9 +29,12 @@ public class Queue<E> implements QueueADT<E> {
 
     @Override
     public E dequeue() {
-        if (size == 0) {
+        if (isEmpty()) {
             throw new IndexOutOfBoundsException("Queue is empty");
         }
+//        if (size() == objects.length - 1) {
+//            throw new IndexOutOfBoundsException("못넣음");
+//        }
         E temp = objects[front];
         objects[front] = null;
         size--;
@@ -57,7 +60,7 @@ public class Queue<E> implements QueueADT<E> {
     }
 
     @Override
-    public int size() {
+    public int  size() {
         return size;
     }
 
